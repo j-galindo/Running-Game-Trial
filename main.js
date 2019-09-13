@@ -65,41 +65,47 @@ function obstacle() {
     };
 
 }
-let gamearea = {
-    canvas: document.createElement("canvas"),
-    start: function() {
-        this.canvas.height = 480;
-        this.canvas.width = 900;
-        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-        this.context = this.canvas.getContext("2d")
-            // myObstacles.push(new obstacle());
-        this.frame = 0;
-        this.interval = setInterval(this.updateGameArea, 5)
-        window.addEventListener("keydown", jump);
-    },
-    updateGameArea: function() {
-        for (i = 0; i < myObstacles.length; i++) {
-            if (player.crashWith(myObstacles[i])) {
-                gamearea.stop();
-                return;
-            }
-        }
-        gamearea.clear();
-        if (everyinterval(gap)) {
-            myObstacles.push(new obstacle());
-            console.log(myObstacles)
-            gap = randGap();
-            gamearea.frame = 1;
-        }
-        for (i = 0; i < myObstacles.length; i++) {
-            myObstacles[i].x -= 4;
-            myObstacles[i].draw();
-        }
-        player.newPos();
-        player.update();
-        gamearea.frame += 1;
-    },
-    clear: function() {
-        gamearea.context.clearRect(0, 0, this.canvas.width, this.canvas.width)
-    }
-}
+
+
+
+
+
+
+// let gamearea = {
+//     canvas: document.createElement("canvas"),
+//     start: function() {
+//         this.canvas.height = 480;
+//         this.canvas.width = 900;
+//         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+//         this.context = this.canvas.getContext("2d")
+//             // myObstacles.push(new obstacle());
+//         this.frame = 0;
+//         this.interval = setInterval(this.updateGameArea, 5)
+//         window.addEventListener("keydown", jump);
+//     },
+//     updateGameArea: function() {
+//         for (i = 0; i < myObstacles.length; i++) {
+//             if (player.crashWith(myObstacles[i])) {
+//                 gamearea.stop();
+//                 return;
+//             }
+//         }
+//         gamearea.clear();
+//         if (everyinterval(gap)) {
+//             myObstacles.push(new obstacle());
+//             console.log(myObstacles)
+//             gap = randGap();
+//             gamearea.frame = 1;
+//         }
+//         for (i = 0; i < myObstacles.length; i++) {
+//             myObstacles[i].x -= 4;
+//             myObstacles[i].draw();
+//         }
+//         player.newPos();
+//         player.update();
+//         gamearea.frame += 1;
+//     },
+//     clear: function() {
+//         gamearea.context.clearRect(0, 0, this.canvas.width, this.canvas.width)
+//     }
+// }
